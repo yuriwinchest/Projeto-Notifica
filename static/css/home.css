@@ -1,0 +1,259 @@
+/* Estilos globais */
+:root {
+    --cor-primaria: #007799;
+    --cor-secundaria: #0099cc;
+    --cor-fundo: #f5f6fa93;
+    --cor-texto: #444;
+    --cor-acento: #ff2007; /* Cor de acento para destaque */
+    --cor-fundo-caixa: #ffffff;
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* Fonte moderna */
+    margin: 0;
+    padding: 0;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    line-height: 1.6; /* Mais espaçamento entre linhas para legibilidade */
+    position: relative;
+}
+
+/* Marcação d'água */
+body::before {
+    content: "";
+    position: fixed;
+    top: 50%; /* Centraliza verticalmente */
+    left: 50%; /* Centraliza horizontalmente */
+    width: 80%; /* Largura da marca d'água */
+    height: 80%; /* Altura da marca d'água */
+    transform: translate(-35%, -37%); /* Move para o centro da tela */
+    background-image: url('/static/img/foto-serpro.png');
+    background-size: cover; /* Cobre toda a caixa mantendo a proporção */
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1; /* Fica atrás do conteúdo */
+}
+
+/* Estilos da Sidebar */
+.sidebar {
+    width: 260px;
+    background-color: var(--cor-primaria);
+    color: #ffffff;
+    height: 100vh;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    transition: width 0.3s ease; /* Transição suave ao ajustar o tamanho */
+}
+
+.sidebar:hover {
+    width: 280px; /* Expande levemente ao passar o mouse */
+}
+
+/* Estilo do menu principal */
+.menu-item {
+    display: block;
+    padding: 10px 15px;
+    background-color: #0099cc;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.menu-item:hover {
+    background-color: var(--cor-acento); /* Cor mais vibrante ao passar o mouse */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra suave ao passar o mouse */
+}
+
+.regional-text {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.city-text {
+    font-size: 14px;
+    font-style: italic;
+    display: block;
+    margin-left: auto; /* Alinha o texto da cidade à direita */
+}
+
+/* Estilos do conteúdo principal */
+.content {
+    color: #0099cc;
+    padding: 25px;
+    margin-left: 300px; /* Ajuste para a largura da sidebar */
+    background-color: var(--cor-fundo-caixa); /* Cor de fundo da caixa */
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.content .title {
+    margin-top: 0%;
+    font-size: 50px; /* Tamanho da fonte */
+    color: var(--cor-primaria); /* Cor usando a variável definida */
+    margin-bottom: 2px; /* Espaçamento inferior */
+    text-align: center; /* Alinhamento centralizado */
+    font-weight: bold; /* Negrito */
+}
+
+/* Efeitos de transição */
+.content .title:hover {
+    color: var(--cor-secundaria); /* Muda a cor ao passar o mouse */
+    text-decoration: underline; /* Sublinha ao passar o mouse */
+}
+
+/* Seções das cidades */
+.city-section {
+    display: none; /* Mantém as seções ocultas inicialmente */
+    font-family: 'Poppins', sans-serif;
+    color: #000000;
+    padding: 20px;
+    background-color: var(--cor-fundo-caixa);
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    margin-bottom: 20px;
+}
+
+/* Estilos para tabelas */
+.table-container {
+    overflow-x: auto; /* Permite rolagem horizontal */
+    margin-top: 20px; /* Espaçamento superior */
+}
+
+table {
+    width: 100%; /* Tabela ocupando 100% do contêiner */
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+th {
+    background-color: var(--cor-primaria);
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9; /* Fundo alternado para as linhas */
+}
+
+tr:hover {
+    background-color: var(--cor-secundaria); /* Fundo ao passar o mouse */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 220px; /* Largura reduzida em telas menores */
+    }
+    .content {
+        margin-left: 240px; /* Ajusta margem conforme sidebar */
+    }
+    th, td {
+        padding: 10px; /* Ajusta padding */
+        font-size: 14px; /* Reduz tamanho da fonte */
+    }
+}
+
+@media (max-width: 600px) {
+    .sidebar {
+        position: static; /* Sidebar se torna estática */
+        width: 100%; /* Largura total */
+        margin-bottom: 20px;
+    }
+    .content {
+        margin-left: 0; /* Remove margem esquerda */
+    }
+    th, td {
+        display: block; /* Cada célula como bloco */
+        width: 100%; /* Ocupa 100% da largura */
+        box-sizing: border-box; /* Inclui padding e borda na largura total */
+    }
+    
+    tr {
+        display: flex; /* Flex para alinhar células em linha */
+        flex-direction: column; /* Coloca células em coluna */
+        margin-bottom: 10px; /* Espaçamento entre as linhas */
+    }
+
+    /* Estilizando botões das cidades e filtros */
+    .city-nav, .filtros {
+        display: flex; /* Flexbox para organizar os botões */
+        flex-wrap: wrap; /* Permite que os botões quebrem para a linha seguinte */
+        justify-content: center; /* Centraliza os botões */
+        margin-bottom: 20px; /* Espaçamento inferior */
+    }
+
+    .city-nav button, .filtros button {
+        margin: 5px; /* Espaçamento entre os botões */
+        flex: 1 1 45%; /* Faz os botões ocuparem 45% da largura disponível */
+        min-width: 120px; /* Largura mínima para os botões */
+    }
+}
+
+/* Botões de status */
+.vermelho {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+.verde {
+    background-color: #2ecc71;
+    color: #fff;
+}
+
+.amarelo {
+    background-color: #f1c40f;
+    color: #fff;
+}
+
+/* Estilos para botões de navegação e filtros */
+.filtros button,
+.btn button {
+    padding: 10px 18px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--cor-primaria);
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.filtros button:hover,
+.btn button:hover {
+    background-color: var(--cor-secundaria);
+    transform: scale(1.05); /* Aumenta ligeiramente ao passar o mouse */
+}
+
+.city-nav button  {
+    margin-top: 2%;
+    padding: 10px 18px;
+    margin-right: 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--cor-primaria);
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.city-nav button:hover {
+    background-color: var(--cor-secundaria);
+    transform: scale(1.05); /* Aumenta ligeiramente ao passar o mouse */
+}

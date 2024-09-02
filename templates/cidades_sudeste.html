@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/home.css">
+    <title>Regional Sudeste</title>
+    <style>
+        .city-section {
+            display: none; /* Esconde as seções inicialmente */
+        }
+    </style>
+</head>
+<body>
+    <h2>Regional Sudeste</h2>
+
+    <div class="regional-container">
+        <!-- Filtros de Status -->
+        <div class="filtros">
+            <!-- Botões de navegação -->
+            <button onclick="goToHome()"> Home</button>
+            <button onclick="filterTable('todos')">Todos</button>
+            <button onclick="filterTable('pago')">Pagos</button>
+            <button onclick="filterTable('nao_pago')">Não Pagos</button>
+            <button onclick="filterTable('proximo_vencer')">A Vencer</button>
+        </div>
+
+        <!-- Navegação entre as cidades -->
+        <div class="city-nav">
+            <button onclick="showCity('sao-paulo')">São Paulo</button>
+            <button onclick="showCity('rio-de-janeiro')">Rio de Janeiro</button>
+            <button onclick="showCity('belo-horizonte')">Belo Horizonte</button>
+        </div>
+
+        <!-- Seção para São Paulo -->
+        <section id="sao-paulo" class="city-section">
+            <h3>São Paulo</h3>
+            <p>Socorro<br>
+            Rua Olívia Guedes Penteado, 941,<br>
+            Capela do Socorro, São Paulo/SP<br>
+            CEP: 04766-900<br>
+            Horário de Atendimento ao público: 8h às 17h<br>
+            CNPJ: 33.683.111/0009-56<br>
+            Início das Atividades: 30/6/1967<br>
+            Fone: (11) 2173-1322</p>
+
+            <h4>Tabela de Tributos - São Paulo</h4>
+            <p><strong>Clique no nome do tributo para abrir o link correspondente.</strong></p> <!-- Instrução fora da tabela -->
+
+            <table id="tabela-tributos-sao-paulo" class="tributos-table">
+                <thead>
+                    <tr>
+                        <th>Tributos e Taxas</th>
+                        <th>Jun./2022</th>
+                        <th>Dez./2021</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-status="pago">
+                        <td><a href="https://linkparatributosaopaulo.com" target="_blank">Tributos Federais – IRPJ e CSLL</a></td>
+                        <td>128.304</td>
+                        <td>104.591</td>
+                        <td><button class="status-btn verde">Pago</button></td>
+                    </tr>
+                    <tr data-status="proximo_vencer">
+                        <td><a href="https://linkparatributosaopaulo.com" target="_blank">IR e CSLL a recuperar/compensar</a></td>
+                        <td>217.160</td>
+                        <td>201.973</td>
+                        <td><button class="status-btn amarelo">Próximo a Vencer</button></td>
+                    </tr>
+                    <tr data-status="pago">
+                        <td><a href="https://linkparatributosaopaulo.com" target="_blank">IRRF a compensar</a></td>
+                        <td>16.245</td>
+                        <td>6.404</td>
+                        <td><button class="status-btn verde">Pago</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Seção para Rio de Janeiro -->
+        <section id="rio-de-janeiro" class="city-section">
+            <h3>Rio de Janeiro</h3>
+            <p>Horto<br>
+            Rua Pacheco Leão, 1.235 Fundos - Jardim Botânico<br>
+            Rio de Janeiro/RJ<br>
+            CEP: 22460-905<br>
+            Horário de Atendimento ao público: 8h30 às 17h30<br>
+            CNPJ: 33.683.111/0008-75<br>
+            Início das Atividades: 30/6/1967<br>
+            Fone: (21) 2159-3300</p>
+
+            <h4>Tabela de Tributos - Rio de Janeiro</h4>
+            <p><strong>Clique no nome do tributo para abrir o link correspondente.</strong></p> <!-- Instrução fora da tabela -->
+
+            <table id="tabela-tributos-rio-de-janeiro" class="tributos-table">
+                <thead>
+                    <tr>
+                        <th>Tributos e Taxas</th>
+                        <th>Jun./2022</th>
+                        <th>Dez./2021</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-status="pago">
+                        <td><a href="https://linkparatributorio.com" target="_blank">Tributos Federais – IRPJ e CSLL</a></td>
+                        <td>128.304</td>
+                        <td>104.591</td>
+                        <td><button class="status-btn verde">Pago</button></td>
+                    </tr>
+                    <tr data-status="proximo_vencer">
+                        <td><a href="https://linkparatributorio.com" target="_blank">IR e CSLL a recuperar/compensar</a></td>
+                        <td>217.160</td>
+                        <td>201.973</td>
+                        <td><button class="status-btn amarelo">Próximo a Vencer</button></td>
+                    </tr>
+                    <tr data-status="pago">
+                        <td><a href="https://linkparatributorio.com" target="_blank">IRRF a compensar</a></td>
+                        <td>16.245</td>
+                        <td>6.404</td>
+                        <td><button class="status-btn verde">Pago</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Seção para Belo Horizonte -->
+        <section id="belo-horizonte" class="city-section">
+            <h3>Belo Horizonte</h3>
+            <p>Av. José Cândido da Silveira, 1.200 - Horto Florestal<br>
+            Belo Horizonte/Minas Gerais<br>
+            CEP: 31035-536<br>
+            Horário de Atendimento ao público: 8h às 18h<br>
+            CNPJ: 33.683.111/0007-94<br>
+            Início das Atividades: 30/6/1967<br>
+            Fone: (31) 3311-6200</p>
+
+            <h4>Tabela de Tributos - Belo Horizonte</h4>
+            <p><strong>Clique no nome do tributo para abrir o link correspondente.</strong></p> <!-- Instrução fora da tabela -->
+
+            <table id="tabela-tributos-belo-horizonte" class="tributos-table">
+                <thead>
+                    <tr>
+                        <th>Tributos e Taxas</th>
+                        <th>Jun./2022</th>
+                        <th>Dez./2021</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-status="pago">
+                        <td><a href="https://linkparatributobh.com" target="_blank">Tributos Federais – IRPJ e CSLL</a></td>
+                        <td>128.304</td>
+                        <td>104.591</td>
+                        <td><button class="status-btn verde">Pago</button></td>
+                    </tr>
+                    <tr data-status="proximo_vencer">
+                        <td><a href="https://linkparatributobh.com" target="_blank">IR e CSLL a recuperar/compensar</a></td>
+                        <td>217.160</td>
+                        <td>201.973</td>
+                        <td><button class="status-btn amarelo">Próximo a Vencer</button></td>
+                    </tr>
+                    <tr data-status="pago">
+                        <td><a href="https://linkparatributobh.com" target="_blank">IRRF a compensar</a></td>
+                        <td>16.245</td>
+                        <td>6.404</td>
+                        <td><button class="status-btn verde">Pago</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+
+    <!-- Carregue o script JavaScript após o HTML -->
+    <script src="/static/js/script.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

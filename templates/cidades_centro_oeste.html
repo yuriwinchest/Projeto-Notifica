@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/home.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    
+    <title>Regional Brasília - Centro-Oeste</title>
+   
+</head>
+<body>
+    <h2 class="title">Regional Brasília - Centro-Oeste</h2>
+
+    <div class="regional-container">
+        <!-- Filtros de Status -->
+        <div class="filtros">
+            <!-- Botões de navegação -->
+            <button onclick="goToHome()"> Home</button>
+            <button onclick="filterTable('todos')">Todos</button>
+            <button onclick="filterTable('pago')">Pagos</button>
+            <button onclick="filterTable('nao_pago')">Não Pagos</button>
+            <button onclick="filterTable('proximo_vencer')">A Vencer</button>
+        </div>
+
+        <!-- Navegação entre as cidades -->
+        <div class="city-nav">
+            <button onclick="showCity('brasilia')">Brasília</button>
+            <button onclick="showCity('cuiaba')">Cuiabá</button>
+            <button onclick="showCity('campo-grande')">Campo Grande</button>
+            <button onclick="showCity('goiania')">Goiânia</button>
+        </div>
+
+        <!-- Seção para Brasília -->
+        <section id="brasilia" class="city-section">
+            <h3>Brasília</h3>
+            <p>SGAN Av. L-2 Norte Quadra 601 – Módulo G<br>
+            Brasília/Distrito Federal<br>
+            CEP: 70.836-900<br>
+            Horário de Atendimento ao público: 8h às 18h<br>
+            CNPJ: 33.683.111/0002-80<br>
+            Início das Atividades: 30/6/1967</p>
+
+            <h4>Tabela de Tributos - Brasília</h4>
+            <p><strong>Clique no nome do tributo para abrir o link correspondente.</strong></p> <!-- Instrução fora da tabela -->
+
+            <table id="tabela-tributos-brasilia" class="tributos-table">
+                <thead>
+                    <tr>
+                        <th>Tributos e Taxas</th>
+                        <th>Jun./2022</th>
+                        <th>Dez./2021</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr data-status="pago">
+                        <td><a href="https://chatgpt.com/c/d6db6176-4f79-4aff-a5f8-f680bc5d37a2" target="_blank">Tributos Federais – IRPJ e CSLL</a></td>
+                        <td>128.304</td>
+                        <td>104.591</td>
+                        <td><button class="status-btn verde">Pago</button></td>
+                    </tr>
+                    <tr data-status="proximo_vencer">
+                        <td><a href="https://linkparatributobrasilia.com" target="_blank">IR e CSLL a recuperar/compensar</a></td>
+                        <td>217.160</td>
+                        <td>201.973</td>
+                        <td><button class="status-btn amarelo">Próximo a Vencer</button></td>
+                    </tr>
+                    <tr data-status="pago">
+                        <td><a href="https://linkparatributobrasilia.com" target="_blank">IRRF a compensar</a></td>
+                        <td>16.245</td>
+                        <td>6.404</td>
+                        <td><button class="status-btn verde">Pago</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Seção para Cuiabá -->
+        <section id="cuiaba" class="city-section">
+            <h3>Cuiabá</h3>
+            <p>Responsável: Renival Pessoa de Oliveira<br>
+            Contato Celular: (65) 99226-8338<br>
+            Ramal: (61) 9386<br>
+            Link para Alvará: <a href="https://portalfazenda.cuiaba.mt.gov.br/portalfazenda/PortalContribuinte/EmitirAlvara" target="_blank">Emitir Alvará</a></p>
+
+            <h4>Tabela de Tributos - Cuiabá</h4>
+            <p><strong>Clique no nome do tributo para abrir o link correspondente.</strong></p> <!-- Instrução fora da tabela -->
+
+            <table id="tabela-tributos-cuiaba" class="tributos-table">
+                <thead>
+                    <tr>
+                        <th>Tributos e Taxas</th>
+                        <th>Jun./2022</th>
+                        <th>Dez./2021</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-status="pago">
+                        <td><a href="https://portalfazenda.cuiaba.mt.gov.br/portalfazenda/PortalContribuinte/EmitirAlvara" target="_blank">Tributos Federais – IRPJ e CSLL</a></td>
+                        <td>128.304</td>
+                        <td>104.591</td>
+                        <td><button class="status-btn verde">Pago</button></td>
+                    </tr>
+                    <tr data-status="proximo_vencer">
+                        <td><a href="https://portalfazenda.cuiaba.mt.gov.br/portalfazenda/PortalContribuinte/EmitirAlvara" target="_blank">IR e CSLL a recuperar/compensar</a></td>
+                        <td>217.160</td>
+                        <td>201.973</td>
+                        <td><button class="status-btn amarelo">Próximo a Vencer</button></td>
+                    </tr>
+                    <tr data-status="pago">
+                        <td><a href="https://portalfazenda.cuiaba.mt.gov.br/portalfazenda/PortalContribuinte/EmitirAlvara" target="_blank">IRRF a compensar</a></td>
+                        <td>16.245</td>
+                        <td>6.404</td>
+                        <td><button class="status-btn verde">Pago</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Seção para Campo Grande -->
+        <section id="campo-grande" class="city-section">
+            <h3>Campo Grande</h3>
+            <p>Responsável: Udson Jara Maciel<br>
+            Contato Celular: (67) 99140-8239<br>
+            Ramal: (61) 9156<br>
+            Link para Alvará: <a href="http://portalsiat.pmcg.ms.gov.br/dsf_cgr_portal/inicial.do?evento=montaMenu&acronym=EXTRATO" target="_blank">Emitir Alvará</a></p>
+
+            <h4>Tabela de Tributos - Campo Grande</h4>
+            <p><strong>Clique no nome do tributo para abrir o link correspondente.</strong></p> <!-- Instrução fora da tabela -->
+
+            <table id="tabela-tributos-campo-grande" class="tributos-table">
+                <thead>
+                    <tr>
+                        <th>Tributos e Taxas</th>
+                        <th>Jun./2022</th>
+                        <th>Dez./2021</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-status="pago">
+                        <td><a href="http://portalsiat.pmcg.ms.gov.br/dsf_cgr_portal/inicial.do?evento=montaMenu&acronym=EXTRATO" target="_blank">Tributos Federais – IRPJ e CSLL</a></td>
+                        <td>128.304</td>
+                        <td>104.591</td>
+                        <td><button class="status-btn verde">Pago</button></td>
+                    </tr>
+                    <tr data-status="proximo_vencer">
+                        <td><a href="http://portalsiat.pmcg.ms.gov.br/dsf_cgr_portal/inicial.do?evento=montaMenu&acronym=EXTRATO" target="_blank">IR e CSLL a recuperar/compensar</a></td>
+                        <td>217.160</td>
+                        <td>201.973</td>
+                        <td><button class="status-btn amarelo">Próximo a Vencer</button></td>
+                    </tr>
+                    <tr data-status="pago">
+                        <td><a href="http://portalsiat.pmcg.ms.gov.br/dsf_cgr_portal/inicial.do?evento=montaMenu&acronym=EXTRATO" target="_blank">IRRF a compensar</a></td>
+                        <td>16.245</td>
+                        <td>6.404</td>
+                        <td><button class="status-btn verde">Pago</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Seção para Goiânia -->
+        <section id="goiania" class="city-section">
+            <h3>Goiânia</h3>
+            <p>Responsável: Bruno Ludovico de Almeida<br>
+            Contato Celular: (62) 98102-0606<br>
+            Ramal: (61) 9012<br>
+            Link para Alvará: <a href="https://www.goiania.go.gov.br/" target="_blank">Emitir Alvará</a></p>
+
+            <h4>Tabela de Tributos - Goiânia</h4>
+            <p><strong>Clique no nome do tributo para abrir o link correspondente.</strong></p> <!-- Instrução fora da tabela -->
+
+            <table id="tabela-tributos-goiania" class="tributos-table">
+                <thead>
+                    <tr>
+                        <th>Tributos e Taxas</th>
+                        <th>Jun./2022</th>
+                        <th>Dez./2021</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-status="pago">
+                        <td><a href="https://www.goiania.go.gov.br/" target="_blank">Tributos Federais – IRPJ e CSLL</a></td>
+                        <td>128.304</td>
+                        <td>104.591</td>
+                        <td><button class="status-btn verde">Pago</button></td>
+                    </tr>
+                    <tr data-status="proximo_vencer">
+                        <td><a href="https://www.goiania.go.gov.br/" target="_blank">IR e CSLL a recuperar/compensar</a></td>
+                        <td>217.160</td>
+                        <td>201.973</td>
+                        <td><button class="status-btn amarelo">Próximo a Vencer</button></td>
+                    </tr>
+                    <tr data-status="pago">
+                        <td><a href="https://www.goiania.go.gov.br/" target="_blank">IRRF a compensar</a></td>
+                        <td>16.245</td>
+                        <td>6.404</td>
+                        <td><button class="status-btn verde">Pago</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+
+    <!-- Carregue o script JavaScript após o HTML -->
+    <script src="/static/js/script.js"></script>
+</body>
+</html>

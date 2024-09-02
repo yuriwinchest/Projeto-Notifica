@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Rastreamento de Tributos</title>
+    <link rel="stylesheet" href="/static/css/home.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="sidebar">
+        <!-- Botão para expandir as regionais -->
+        <div class="menu-item" onclick="toggleRegionalMenu('regional-menu')">
+            Regionais 
+        </div>
+        <div id="regional-menu" class="submenu">
+            <div class="menu-item" onclick="loadContent('cidades_centro_oeste.html')">
+                <span class="regional-text">Regional Brasília</span><br>
+                <span class="city-text">Brasília</span>
+            </div>
+            <div class="menu-item" onclick="loadContent('cidades_sudeste.html')">
+                <span class="regional-text">Regional Sudeste</span><br>
+                <span class="city-text">São Paulo</span>
+            </div>
+            <div class="menu-item" onclick="loadContent('cidades_nordeste.html')">
+                <span class="regional-text">Regional Nordeste</span><br>
+                <span class="city-text">Salvador</span>
+            </div>
+            <div class="menu-item" onclick="loadContent('cidades_norte.html')">
+                <span class="regional-text">Regional Norte</span><br>
+                <span class="city-text">Belém</span>
+            </div>
+            <div class="menu-item" onclick="loadContent('cidades_sul.html')">
+                <span class="regional-text">Regional Sul</span><br>
+                <span class="city-text">Curitiba</span>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="content" id="content-area">
+        <h1 class="title">Painel Financeiro de Tributos. </h1>
+  
+       
+        <!-- O conteúdo das regiões será carregado aqui -->
+    </div>
+    
+    <script src="/static/js/script.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

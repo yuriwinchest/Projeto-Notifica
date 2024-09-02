@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regional Sul</title>
+    <link rel="stylesheet" href="/static/css/home.css">
+    <style>
+        .city-section {
+            display: none; /* Esconde as seções inicialmente */
+        }
+    </style>
+</head>
+<body>
+    <h2>Regional Sul</h2>
+
+    <!-- Filtros de Status e Navegação -->
+    <div class="regional-container">
+        <div class="filtros">
+            <button onclick="goToHome()"> Home</button>
+            <button onclick="filterTable('todos')">Todos</button>
+            <button onclick="filterTable('pago')">Pagos</button>
+            <button onclick="filterTable('nao_pago')">Não Pagos</button>
+            <button onclick="filterTable('proximo_vencer')">A Vencer</button>
+        </div>
+
+        <!-- Navegação entre as cidades -->
+        <div class="city-nav">
+            <button onclick="showCity('curitiba')">Curitiba</button>
+            <button onclick="showCity('florianopolis')">Florianópolis</button>
+            <button onclick="showCity('porto-alegre')">Porto Alegre</button>
+        </div>
+
+        <!-- Informações de Curitiba -->
+        <section id="curitiba" class="city-section">
+            <h3>Curitiba</h3>
+            <p>Rua Carlos Pioli, 133 - Bom Retiro<br>
+            Curitiba/Paraná<br>
+            CEP: 80520-170<br>
+            Horário de atendimento ao público: 8h às 18h<br>
+            CNPJ: 33.683.111/0010-90<br>
+            Início das Atividades: 30/6/1967<br>
+            Fone: (41) 3593-8200</p>
+
+            <h4>Tabela de Tributos - Curitiba</h4>
+            <p><strong>Clique no nome do tributo para abrir o link correspondente.</strong></p> <!-- Instrução fora da tabela -->
+            
+            <table id="tabela-curitiba" class="tributos-table">
+                <thead>
+                    <tr>
+                        <th>Descrição</th>
+                        <th>Jun./2022</th>
+                        <th>Dez./2021</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-status="pago">
+                        <td><a href="https://chatgpt.com/c/d6db6176-4f79-4aff-a5f8-f680bc5d37a2" target="_blank">Tributos Federais – IRPJ e CSLL</a></td>
+                        <td>128.304</td>
+                        <td>104.591</td>
+                        <td><button class="status-btn verde">Pago</button></td>
+                    </tr>
+                    <tr data-status="proximo_vencer">
+                        <td><a href="https://linkparatributobrasilia.com" target="_blank">IR e CSLL a recuperar/compensar</a></td>
+                        <td>217.160</td>
+                        <td>201.973</td>
+                        <td><button class="status-btn amarelo">Próximo a Vencer</button></td>
+                    </tr>
+                    <tr data-status="pago">
+                        <td><a href="https://linkparatributobrasilia.com" target="_blank">IRRF a compensar</a></td>
+                        <td>16.245</td>
+                        <td>6.404</td>
+                        <td><button class="status-btn verde">Pago</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+        </section>
+
+        <!-- Informações de Florianópolis -->
+        <section id="florianopolis" class="city-section">
+            <h3>Florianópolis</h3>
+            <p>Rodovia Virgílio Várzea, nº 587 - Bairro Monte Verde<br>
+            Floripa Shopping (piso L2)<br>
+            Florianópolis/Santa Catarina<br>
+            CEP: 88032-000<br>
+            Horário de atendimento ao público: 8h às 18h<br>
+            CNPJ: 33.683.111/0019-28<br>
+            Início das Atividades: 3/4/1978<br>
+            Fone: (48) 3231-8900</p>
+
+            <h4>Tabela de Tributos - Florianópolis</h4>
+            <p><strong>Clique no nome do tributo para abrir o link correspondente.</strong></p> <!-- Instrução fora da tabela -->
+
+            <table id="tabela-florianopolis" class="tributos-table">
+                <thead>
+                    <tr>
+                        <th>Descrição</th>
+                        <th>Jun./2022</th>
+                        <th>Dez./2021</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-status="nao_pago">
+                        <td><a href="https://linkparatributoflorianopolis.com" target="_blank">Tributos Federais – IRPJ e CSLL</a></td>
+                        <td>128.304</td>
+                        <td>104.591</td>
+                        <td><button class="status-btn vermelho">Não Pago</button></td>
+                    </tr>
+                    <tr data-status="proximo_vencer">
+                        <td><a href="https://linkparatributoflorianopolis.com" target="_blank">IR e CSLL a recuperar/compensar</a></td>
+                        <td>217.160</td>
+                        <td>201.973</td>
+                        <td><button class="status-btn amarelo">Próximo a Vencer</button></td>
+                    </tr>
+                    <tr data-status="pago">
+                        <td><a href="https://linkparatributoflorianopolis.com" target="_blank">IRRF a compensar</a></td>
+                        <td>16.245</td>
+                        <td>6.404</td>
+                        <td><button class="status-btn verde">Pago</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Informações de Porto Alegre -->
+        <section id="porto-alegre" class="city-section">
+            <h3>Porto Alegre</h3>
+            <p>Av. Augusto de Carvalho, 1.133 - Bairro Praia de Belas<br>
+            Porto Alegre/Rio Grande do Sul<br>
+            CEP: 90010-390<br>
+            Horário de atendimento ao público: 8h às 18h<br>
+            CNPJ: 33.683.111/0011-70<br>
+            Início das Atividades: 30/6/1967<br>
+            Fone: (51) 2129-1200</p>
+
+            <h4>Tabela de Tributos - Porto Alegre</h4>
+            <p><strong>Clique no nome do tributo para abrir o link correspondente.</strong></p> <!-- Instrução fora da tabela -->
+
+            <table id="tabela-porto-alegre" class="tributos-table">
+                <thead>
+                    <tr>
+                        <th>Descrição</th>
+                        <th>Jun./2022</th>
+                        <th>Dez./2021</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-status="nao_pago">
+                        <td><a href="https://linkparatributoportoalegre.com" target="_blank">Tributos Federais – IRPJ e CSLL</a></td>
+                        <td>128.304</td>
+                        <td>104.591</td>
+                        <td><button class="status-btn vermelho">Não Pago</button></td>
+                    </tr>
+                    <tr data-status="proximo_vencer">
+                        <td><a href="https://linkparatributoportoalegre.com" target="_blank">IR e CSLL a recuperar/compensar</a></td>
+                        <td>217.160</td>
+                        <td>201.973</td>
+                        <td><button class="status-btn amarelo">Próximo a Vencer</button></td>
+                    </tr>
+                    <tr data-status="pago">
+                        <td><a href="https://www.transparencia.serpro.gov.br/@@search?SearchableText=mapa+" target="_blank">IRRF a compensar</a></td>
+                        <td>16.245</td>
+                        <td>6.404</td>
+                        <td><button class="status-btn verde">Pago</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+
+    <!-- Script JS externo -->
+    <script src="/static/js/script.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

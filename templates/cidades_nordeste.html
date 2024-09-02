@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/home.css">
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <title>Regional Nordeste</title>
+   
+</head>
+<body>
+    <h2>Regional Nordeste</h2>
+
+    <div class="regional-container">
+        <!-- Filtros de Status -->
+        <div class="filtros">
+            <!-- Botões de navegação -->
+            <button onclick="goToHome()"> Home</button>
+            <button onclick="filterTable('todos')">Todos</button>
+            <button onclick="filterTable('pago')">Pagos</button>
+            <button onclick="filterTable('nao_pago')">Não Pagos</button>
+            <button onclick="filterTable('proximo_vencer')">A Vencer</button>
+        </div>
+
+        <!-- Navegação entre as cidades -->
+        <div class="city-nav">
+            <button onclick="showCity('salvador')">Salvador</button>
+            <button onclick="showCity('recife')">Recife</button>
+            <button onclick="showCity('fortaleza')">Fortaleza</button>
+        </div>
+
+        <!-- Seção para Salvador -->
+        <section id="salvador" class="city-section">
+            <h3>Salvador</h3>
+            <p>Av. Luiz Vianna Filho, 2.355 - Paralela<br>
+            Salvador/Bahia<br>
+            CEP: 41.194-200<br>
+            Horário de atendimento ao público: 8h às 18h<br>
+            CNPJ: 33.683.111/0006-03<br>
+            Início das Atividades: 30/6/1967</p>
+            <p>Link para Alvará: <a href="https://salvador.ba.gov.br/tributos" target="_blank">Emitir Alvará</a></p>
+
+            <h4>Tabela de Tributos - Salvador</h4>
+            <p><strong>Clique no nome do tributo para abrir o link correspondente.</strong></p> <!-- Instrução fora da tabela -->
+
+            <table id="tabela-tributos-salvador" class="tributos-table">
+                <thead>
+                    <tr>
+                        <th>Tributos e Taxas</th>
+                        <th>Jun./2022</th>
+                        <th>Dez./2021</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-status="pago">
+                        <td><a href="https://salvador.ba.gov.br/tributos" target="_blank">Tributos Federais – IRPJ e CSLL</a></td>
+                        <td>128.304</td>
+                        <td>104.591</td>
+                        <td><button class="status-btn verde">Pago</button></td>
+                    </tr>
+                    <tr data-status="proximo_vencer">
+                        <td><a href="https://salvador.ba.gov.br/tributos" target="_blank">IR e CSLL a recuperar/compensar</a></td>
+                        <td>217.160</td>
+                        <td>201.973</td>
+                        <td><button class="status-btn amarelo">Próximo a Vencer</button></td>
+                    </tr>
+                    <tr data-status="pago">
+                        <td><a href="https://salvador.ba.gov.br/tributos" target="_blank">IRRF a compensar</a></td>
+                        <td>16.245</td>
+                        <td>6.404</td>
+                        <td><button class="status-btn verde">Pago</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Seção para Recife -->
+        <section id="recife" class="city-section">
+            <h3>Recife</h3>
+            <p>Av. Parnamirim, 295 - Parnamirim<br>
+            Recife/Pernambuco<br>
+            CEP: 52.060-901<br>
+            Horário de atendimento ao público: 8h às 18h<br>
+            CNPJ: 33.683.111/0005-22<br>
+            Fone: (81) 2126-4010 / 4011</p>
+            <p>Link para Alvará: <a href="https://recife.pe.gov.br/tributos" target="_blank">Emitir Alvará</a></p>
+
+            <h4>Tabela de Tributos - Recife</h4>
+            <p><strong>Clique no nome do tributo para abrir o link correspondente.</strong></p> <!-- Instrução fora da tabela -->
+
+            <table id="tabela-tributos-recife" class="tributos-table">
+                <thead>
+                    <tr>
+                        <th>Tributos e Taxas</th>
+                        <th>Jun./2022</th>
+                        <th>Dez./2021</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-status="pago">
+                        <td><a href="https://recife.pe.gov.br/tributos" target="_blank">TESTE DE TABELA</a></td>
+                        <td>128.304</td>
+                        <td>104.591</td>
+                        <td><button class="status-btn verde">Pago</button></td>
+                    </tr>
+                    <tr data-status="pago">
+                        <td><a href="https://recife.pe.gov.br/tributos" target="_blank">Tributos Federais – IRPJ e CSLL</a></td>
+                        <td>128.304</td>
+                        <td>104.591</td>
+                        <td><button class="status-btn verde">Pago</button></td>
+                    </tr>
+                    <tr data-status="proximo_vencer">
+                        <td><a href="https://recife.pe.gov.br/tributos" target="_blank">IR e CSLL a recuperar/compensar</a></td>
+                        <td>217.160</td>
+                        <td>201.973</td>
+                        <td><button class="status-btn amarelo">Próximo a Vencer</button></td>
+                    </tr>
+                    <tr data-status="pago">
+                        <td><a href="https://recife.pe.gov.br/tributos" target="_blank">IRRF a compensar</a></td>
+                        <td>16.245</td>
+                        <td>6.404</td>
+                        <td><button class="status-btn verde">Pago</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Seção para Fortaleza -->
+        <section id="fortaleza" class="city-section">
+            <h3>Fortaleza</h3>
+            <p>Av. Pontes Vieira, 832 - São João do Tauape<br>
+            Fortaleza/Ceará<br>
+            CEP: 60130-240<br>
+            Horário de atendimento ao público: 8h às 18h<br>
+            CNPJ: 33.683.111/0004-41<br>
+            Fone: (85) 4008-2800</p>
+            <p>Link para Alvará: <a href="https://fortaleza.ce.gov.br/tributos" target="_blank">Emitir Alvará</a></p>
+
+            <h4>Tabela de Tributos - Fortaleza</h4>
+            <p><strong>Clique no nome do tributo para abrir o link correspondente.</strong></p> <!-- Instrução fora da tabela -->
+
+            <table id="tabela-tributos-fortaleza" class="tributos-table">
+                <thead>
+                    <tr>
+                        <th>Tributos e Taxas</th>
+                        <th>Jun./2022</th>
+                        <th>Dez./2021</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-status="pago">
+                        <td><a href="https://fortaleza.ce.gov.br/tributos" target="_blank">Tributos Federais – IRPJ e CSLL</a></td>
+                        <td>128.304</td>
+                        <td>104.591</td>
+                        <td><button class="status-btn verde">Pago</button></td>
+                    </tr>
+                    <tr data-status="proximo_vencer">
+                        <td><a href="https://fortaleza.ce.gov.br/tributos" target="_blank">IR e CSLL a recuperar/compensar</a></td>
+                        <td>217.160</td>
+                        <td>201.973</td>
+                        <td><button class="status-btn amarelo">Próximo a Vencer</button></td>
+                    </tr>
+                    <tr data-status="pago">
+                        <td><a href="https://fortaleza.ce.gov.br/tributos" target="_blank">IRRF a compensar</a></td>
+                        <td>16.245</td>
+                        <td>6.404</td>
+                        <td><button class="status-btn verde">Pago</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+    </div>
+
+    <!-- Carregue o script JavaScript após o HTML -->
+    <script src="/static/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+/* Estilos globais */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Container principal */
+.regional-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    border: 1px solid #ddd;
+}
+
+/* Estilo para os títulos */
+h3 {
+    font-size: 26px;
+    margin-bottom: 15px;
+    color: #34495e;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+}
+
+p {
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+/* Estilo para a tabela */
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+th {
+    background-color: #3498db;
+    color: white;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #e1f5fe;
+}
+
+tfoot {
+    font-weight: bold;
+    background-color: #f9f9f9;
+}
+
+tfoot td {
+    border-top: 2px solid #3498db;
+}
+
+/* Estilo para os botões de status */
+.status-btn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.vermelho {
+    background-color: #e74c3c; /* Vermelho */
+}
+
+.verde {
+    background-color: #2ecc71; /* Verde */
+}
+
+.amarelo {
+    background-color: #f1c40f; /* Amarelo */
+}
+
+/* Estilos para os botões de navegação e filtros */
+.filtros button, .btn button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #3498db;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.filtros button:last-child, .btn button:last-child {
+    margin-right: 0;
+}
+
+.filtros button:hover, .btn button:hover {
+    background-color: #2980b9;
+}
+
+.filtros button:active, .btn button:active {
+    background-color: #1e6f99;
+    transform: scale(0.98);
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    h3 {
+        font-size: 22px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 10px;
+    }
+
+    .filtros button, .btn button {
+        font-size: 12px;
+        padding: 8px 15px;
+    }
+}

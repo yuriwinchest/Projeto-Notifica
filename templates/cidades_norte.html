@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/home.css">
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <title>Regional Norte</title>
+    <style>
+        .city-section {
+            display: none; /* Esconde as seções inicialmente */
+        }
+    </style>
+</head>
+<body>
+    <h2>Regional Norte</h2>
+
+    <div class="regional-container">
+        <!-- Filtros de Status -->
+        <div class="filtros">
+            <!-- Botões de navegação -->
+            <button onclick="goToHome()"> Home</button>
+            <button onclick="filterTable('todos')">Todos</button>
+            <button onclick="filterTable('pago')">Pagos</button>
+            <button onclick="filterTable('nao_pago')">Não Pagos</button>
+            <button onclick="filterTable('proximo_vencer')">A Vencer</button>
+        </div>
+
+        <!-- Navegação entre as cidades -->
+        <div class="city-nav">
+            <button onclick="showCity('belem')">Belém</button>
+            <button onclick="showCity('boa-vista')">Boa Vista</button>
+            <button onclick="showCity('macapa')">Macapá</button>
+            <button onclick="showCity('porto-velho')">Porto Velho</button>
+            <button onclick="showCity('rio-branco')">Rio Branco</button>
+            <button onclick="showCity('palmas')">Palmas</button>
+        </div>
+
+        <!-- Seção para Belém -->
+        <section id="belem" class="city-section">
+            <h3>Belém</h3>
+            <p>Av. Perimetral da Ciência, Km 01,<br>
+            PCT-Guamá, Prédio Espaço Inovação,<br>
+            3º pavimento, Sala 06, Bairro Guamá<br>
+            Belém/Pará<br>
+            CEP: 66075-750<br>
+            Horário de atendimento ao público: 8h às 18h<br>
+            CNPJ: 33.683.111/0003-60<br>
+            Início das Atividades: 17/9/1973<br>
+            Fone: (11) 2173-3737</p>
+
+            <h4>Tabela de Tributos - Belém</h4>
+            <p><strong>Clique no nome do tributo para abrir o link correspondente.</strong></p> <!-- Instrução fora da tabela -->
+
+            <table id="tabela-tributos-belem" class="tributos-table">
+                <thead>
+                    <tr>
+                        <th>Tributos e Taxas</th>
+                        <th>Jun./2022</th>
+                        <th>Dez./2021</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-status="pago">
+                        <td><a href="https://linkparatributobelem.com" target="_blank">Tributos Federais – IRPJ e CSLL</a></td>
+                        <td>128.304</td>
+                        <td>104.591</td>
+                        <td><button class="status-btn verde">Pago</button></td>
+                    </tr>
+                    <tr data-status="proximo_vencer">
+                        <td><a href="https://linkparatributobelem.com" target="_blank">IR e CSLL a recuperar/compensar</a></td>
+                        <td>217.160</td>
+                        <td>201.973</td>
+                        <td><button class="status-btn amarelo">Próximo a Vencer</button></td>
+                    </tr>
+                    <tr data-status="pago">
+                        <td><a href="https://linkparatributobelem.com" target="_blank">IRRF a compensar</a></td>
+                        <td>16.245</td>
+                        <td>6.404</td>
+                        <td><button class="status-btn verde">Pago</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Seção para Boa Vista -->
+        <section id="boa-vista" class="city-section">
+            <h3>Boa Vista</h3>
+            <p>Responsável: Jose Rogerio de Aquino Braga<br>
+            Contato Celular: (95) 99121-8118<br>
+            Ramal: (91) 1931<br>
+            Link para Alvará: <a href="https://linkparatributoboavista.com" target="_blank">Emitir Alvará</a></p>
+
+            <h4>Tabela de Tributos - Boa Vista</h4>
+            <table id="tabela-tributos-boa-vista" class="tributos-table">
+                <thead>
+                    <tr>
+                        <th>Tributos e Taxas</th>
+                        <th>Jun./2022</th>
+                        <th>Dez./2021</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-status="pago">
+                        <td><a href="https://linkparatributoboavista.com" target="_blank">Tributos Federais – IRPJ e CSLL</a></td>
+                        <td>128.304</td>
+                        <td>104.591</td>
+                        <td><button class="status-btn verde">Pago</button></td>
+                    </tr>
+                    <tr data-status="proximo_vencer">
+                        <td><a href="https://linkparatributoboavista.com" target="_blank">IR e CSLL a recuperar/compensar</a></td>
+                        <td>217.160</td>
+                        <td>201.973</td>
+                        <td><button class="status-btn amarelo">Próximo a Vencer</button></td>
+                    </tr>
+                    <tr data-status="pago">
+                        <td><a href="https://linkparatributoboavista.com" target="_blank">IRRF a compensar</a></td>
+                        <td>16.245</td>
+                        <td>6.404</td>
+                        <td><button class="status-btn verde">Pago</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Seção para Macapá -->
+        <section id="macapa" class="city-section">
+            <h3>Macapá</h3>
+            <p>Responsável: Edmundo Cassio Rodrigues Botelho<br>
+            Contato Celular: (96) 99971-6510<br>
+            Link para Alvará: <a href="https://linkparatributomacapa.com" target="_blank">Emitir Alvará</a></p>
+
+            <h4>Tabela de Tributos - Macapá</h4>
+            <p><strong>Clique no nome do tributo para abrir o link correspondente.</strong></p> <!-- Instrução fora da tabela -->
+
+            <table id="tabela-tributos-macapa" class="tributos-table">
+                <thead>
+                    <tr>
+                        <th>Tributos e Taxas</th>
+                        <th>Jun./2022</th>
+                        <th>Dez./2021</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-status="pago">
+                        <td><a href="https://linkparatributomacapa.com" target="_blank">Tributos Federais – IRPJ e CSLL</a></td>
+                        <td>128.304</td>
+                        <td>104.591</td>
+                        <td><button class="status-btn verde">Pago</button></td>
+                    </tr>
+                    <tr data-status="proximo_vencer">
+                        <td><a href="https://linkparatributomacapa.com" target="_blank">IR e CSLL a recuperar/compensar</a></td>
+                        <td>217.160</td>
+                        <td>201.973</td>
+                        <td><button class="status-btn amarelo">Próximo a Vencer</button></td>
+                    </tr>
+                    <tr data-status="pago">
+                        <td><a href="https://linkparatributomacapa.com" target="_blank">IRRF a compensar</a></td>
+                        <td>16.245</td>
+                        <td>6.404</td>
+                        <td><button class="status-btn verde">Pago</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Seção para Porto Velho -->
+        <section id="porto-velho" class="city-section">
+            <h3>Porto Velho</h3>
+            <p>Responsável: Rogerio de Castro Araujo<br>
+            Contato Celular: (69) 99201-1988<br>
+            Ramal: (91) 1927<br>
+            Link para Alvará: <a href="https://linkparatributoportovelho.com" target="_blank">Emitir Alvará</a></p>
+
+            <h4>Tabela de Tributos - Porto Velho</h4>
+            <p><strong>Clique no nome do tributo para abrir o link correspondente.</strong></p> <!-- Instrução fora da tabela -->
+
+            <table id="tabela-tributos-porto-velho" class="tributos-table">
+                <thead>
+                    <tr>
+                        <th>Tributos e Taxas</th>
+                        <th>Jun./2022</th>
+                        <th>Dez./2021</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-status="pago">
+                        <td><a href="https://linkparatributoportovelho.com" target="_blank">Tributos Federais – IRPJ e CSLL</a></td>
+                        <td>128.304</td>
+                        <td>104.591</td>
+                        <td><button class="status-btn verde">Pago</button></td>
+                    </tr>
+                    <tr data-status="proximo_vencer">
+                        <td><a href="https://linkparatributoportovelho.com" target="_blank">IR e CSLL a recuperar/compensar</a></td>
+                        <td>217.160</td>
+                        <td>201.973</td>
+                        <td><button class="status-btn amarelo">Próximo a Vencer</button></td>
+                    </tr>
+                    <tr data-status="pago">
+                        <td><a href="https://linkparatributoportovelho.com" target="_blank">IRRF a compensar</a></td>
+                        <td>16.245</td>
+                        <td>6.404</td>
+                        <td><button class="status-btn verde">Pago</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Seção para Rio Branco -->
+        <section id="rio-branco" class="city-section">
+            <h3>Rio Branco</h3>
+            <p>Responsável: Ilcimar Diogo de Oliveira<br>
+            Link para Alvará: <a href="https://linkparatributorio-branco.com" target="_blank">Emitir Alvará</a></p>
+
+            <h4>Tabela de Tributos - Rio Branco</h4>
+            <p><strong>Clique no nome do tributo para abrir o link correspondente.</strong></p> <!-- Instrução fora da tabela -->
+
+            <table id="tabela-tributos-rio-branco" class="tributos-table">
+                <thead>
+                    <tr>
+                        <th>Tributos e Taxas</th>
+                        <th>Jun./2022</th>
+                        <th>Dez./2021</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-status="pago">
+                        <td><a href="https://linkparatributorio-branco.com" target="_blank">Tributos Federais – IRPJ e CSLL</a></td>
+                        <td>128.304</td>
+                        <td>104.591</td>
+                        <td><button class="status-btn verde">Pago</button></td>
+                    </tr>
+                    <tr data-status="proximo_vencer">
+                        <td><a href="https://linkparatributorio-branco.com" target="_blank">IR e CSLL a recuperar/compensar</a></td>
+                        <td>217.160</td>
+                        <td>201.973</td>
+                        <td><button class="status-btn amarelo">Próximo a Vencer</button></td>
+                    </tr>
+                    <tr data-status="pago">
+                        <td><a href="https://linkparatributorio-branco.com" target="_blank">IRRF a compensar</a></td>
+                        <td>16.245</td>
+                        <td>6.404</td>
+                        <td><button class="status-btn verde">Pago</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Seção para Palmas -->
+        <section id="palmas" class="city-section">
+            <h3>Palmas</h3>
+            <p>Responsável: Michael Cunha Alexandre<br>
+            Contato Celular: (63) 99248-9500<br>
+            Ramal: (61) 9926<br>
+            Link para Alvará: <a href="https://linkparatributopalmas.com" target="_blank">Emitir Alvará</a></p>
+
+            <h4>Tabela de Tributos - Palmas</h4>
+            <p><strong>Clique no nome do tributo para abrir o link correspondente.</strong></p> <!-- Instrução fora da tabela -->
+
+            <table id="tabela-tributos-palmas" class="tributos-table">
+                <thead>
+                    <tr>
+                        <th>Tributos e Taxas</th>
+                        <th>Jun./2022</th>
+                        <th>Dez./2021</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-status="pago">
+                        <td><a href="https://linkparatributopalmas.com" target="_blank">Tributos Federais – IRPJ e CSLL</a></td>
+                        <td>128.304</td>
+                        <td>104.591</td>
+                        <td><button class="status-btn verde">Pago</button></td>
+                    </tr>
+                    <tr data-status="proximo_vencer">
+                        <td><a href="https://linkparatributopalmas.com" target="_blank">IR e CSLL a recuperar/compensar</a></td>
+                        <td>217.160</td>
+                        <td>201.973</td>
+                        <td><button class="status-btn amarelo">Próximo a Vencer</button></td>
+                    </tr>
+                    <tr data-status="pago">
+                        <td><a href="https://linkparatributopalmas.com" target="_blank">IRRF a compensar</a></td>
+                        <td>16.245</td>
+                        <td>6.404</td>
+                        <td><button class="status-btn verde">Pago</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+
+    <!-- Carregue o script JavaScript após o HTML -->
+    <script src="/static/js/script.js"></script>
+</body>
+</html>
