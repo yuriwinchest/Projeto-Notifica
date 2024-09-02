@@ -1,4 +1,3 @@
-﻿# Projeto-Notifica
 # Projeto Notifica
 
 ## Descrição
